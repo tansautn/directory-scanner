@@ -25,8 +25,8 @@
  * @DETAIL     :
  * --*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*-- *
 **/
-use Magebay\Misc\PathHelper;
-use Magebay\Misc\Scanner;
+use Zuko\Misc\PathHelper;
+use Zuko\Misc\Scanner;
 
 include "src/Scanner.php";
 include "src/PathHelper.php";
@@ -50,7 +50,7 @@ echo "
 if($_POST)
 {
     $zip = new \ZipArchive();
-    $zipFile = \Magebay\Misc\PathHelper::generateUniqueName().'.zip';
+    $zipFile = \Zuko\Misc\PathHelper::generateUniqueName().'.zip';
     if(!file_exists($zipFile)) touch($zipFile);
     $zip->open($zipFile);
     $pathHelper = new PathHelper();

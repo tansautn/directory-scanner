@@ -13,10 +13,11 @@
     "require": {},
     "autoload": {
         "psr-0": {
-            "Zuko\\Misc" : "src/"
+            "Zuko\\Misc\\" : "src/"
         },
         "psr-4": {
-            "Zuko\\Misc" : "src/"
+            "Zuko\\Misc\\" : "src/"
         }
-    }
+    },
+    "version": "1.0"
 }

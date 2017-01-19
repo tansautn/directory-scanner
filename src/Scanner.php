@@ -43,7 +43,7 @@ class Scanner {
      */
     private $_dirHandle;
     /**
-     * @var \Magebay\Misc\PathHelper
+     * @var \Zuko\Misc\PathHelper
      */
     private $_pathHelper;
     /**
@@ -92,7 +92,7 @@ class Scanner {
     }
 
     /**
-     * @return \Magebay\Misc\PathHelper
+     * @return \Zuko\Misc\PathHelper
      */
     public function getPathHelper()
     {
