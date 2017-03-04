@@ -56,6 +56,7 @@ class Scanner {
      * @var callable
      */
     private $_fileEntryCallback;
+    private $_dirEntryCallback;
 
     /**
      * Scanner constructor.
@@ -79,6 +80,17 @@ class Scanner {
     public function setFileEntryCallback($fileEntryCallback)
     {
         $this->_fileEntryCallback = $fileEntryCallback;
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $dirEntryCallback
+     * @return $this
+     */
+    public function setDirEntryCallback($dirEntryCallback)
+    {
+        $this->_dirEntryCallback = $dirEntryCallback;
 
         return $this;
     }
@@ -121,7 +133,12 @@ class Scanner {
                 if(is_dir($this->_currentPath.DIRECTORY_SEPARATOR.$entry))
                 {
                     $dirEntry = new self($this->_currentPath.DIRECTORY_SEPARATOR.$entry);
+                    if(is_callable($this->_dirEntryCallback)) $dirEntry->setDirEntryCallback($this->_dirEntryCallback);
                     if(is_callable($this->_fileEntryCallback)) $dirEntry->setFileEntryCallback($this->_fileEntryCallback);
+                    if(is_callable($this->_dirEntryCallback))
+                    {
+                        call_user_func($this->_dirEntryCallback,realpath($this->_currentPath.DIRECTORY_SEPARATOR.$entry));
+                    }
                     $this->_scanResult[$entry] = $dirEntry->getDirEntries();
                 }
                 else{
