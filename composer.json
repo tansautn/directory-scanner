@@ -2,7 +2,7 @@
     "name": "zuko/directory-scanner",
     "description": "Single class made for recursive scanning directories. See : src/Scanner.php",
     "type": "library",
-    "license": "Apache 2.0",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Zuko",
